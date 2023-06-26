@@ -10,7 +10,15 @@
   <h1>YouTube Thumbnail Downloader</h1>
   <input type="text" id="input" placeholder="Enter Url Here">
   <button id="download">Download</button>
-  <script src="/script.js"></script>
+  <script>
+var DownloadBtn = document.getElementById('download')
+var urlIn = document.getElementById('input')
+
+DownloadBtn.addEventListener('click', function() {
+    console.log(`Download Triggered With: ${urlIn.value}`)
+    
+});
+  </script>
 </body>
 
 </html>
