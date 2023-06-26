@@ -10,13 +10,25 @@
   <h1>YouTube Thumbnail Downloader</h1>
   <input type="text" id="input" placeholder="Enter Url Here">
   <button id="download">Download</button>
+  <div>
+    <img id = "image" src="">Invalid Url</img>
+  </div>
   <script>
 var DownloadBtn = document.getElementById('download')
 var urlIn = document.getElementById('input')
+var image = document.GetElementById('image')
 
 DownloadBtn.addEventListener('click', function() {
     console.log(`Download Triggered With: ${urlIn.value}`)
-    
+    var value = String(urlIn.value)
+    var ur = null
+    if (value.includes('?v=')) {
+      ur = value.split('?v=').pop()
+    } else if (value.includes('https://youtu.be/')) {
+      ur = value.split('https://youtu.be/').pop()
+    }
+    var url = `https://img.youtube.com/vi/${ur}/mqdefault.jpg`
+    image.setAttribute('src', url)
 });
   </script>
 </body>
